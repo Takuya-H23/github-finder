@@ -4,10 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 
 const Navbar = () => (
   <nav className="navbar bg-primary">
-    <h1>
-      <FaGithub />
-      Github Finder
-    </h1>
+    <h1>Github Finder</h1>
     <ul>
       <li>
         <Link to="/">Home</Link>

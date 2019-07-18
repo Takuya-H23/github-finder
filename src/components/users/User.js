@@ -2,7 +2,6 @@ import React, { useEffect, useContext, Fragment } from 'react';
 import GithubContext from './../../context/github/githubContext';
 import Spinner from './../layouts/Spinner';
 import { Link } from 'react-router-dom';
-import { FaCheck, FaTimesCircle } from 'react-icons/fa';
 import Repos from './../repos/Repos';
 
 const User = ({ match }) => {
@@ -27,8 +26,7 @@ const User = ({ match }) => {
     followers,
     following,
     public_repos,
-    public_gists,
-    hirable
+    public_gists
   } = user;
 
   if (loading) return <Spinner />;
@@ -38,12 +36,7 @@ const User = ({ match }) => {
       <Link to="/" className="btn btn-light">
         Back
       </Link>
-      Hirable:{' '}
-      {hirable ? (
-        <FaCheck className="text-success" />
-      ) : (
-        <FaTimesCircle className="text-danger" />
-      )}
+
       <div className="card grid-2">
         <div className="all-center">
           <img src={avatar_url} alt={login} style={{ width: '150px' }} />
@@ -55,6 +48,7 @@ const User = ({ match }) => {
           {bio && (
             <Fragment>
               <h3>Bio</h3>
+              {login && <p>Username: {login}</p>}
               <p>{bio}</p>
             </Fragment>
           )}
@@ -62,14 +56,7 @@ const User = ({ match }) => {
             Visit Github Profile
           </a>
           <ul>
-            <li>
-              {login && (
-                <Fragment>
-                  <strong>Username:</strong>
-                  {login}
-                </Fragment>
-              )}
-            </li>
+            <li />
             <li>
               {company && (
                 <Fragment>
@@ -79,10 +66,22 @@ const User = ({ match }) => {
               )}
             </li>
             <li>
-              {blog && (
+              {/* {blog && (
                 <Fragment>
                   <strong>Website:</strong>
                   {blog}
+                </Fragment>
+              )} */}
+              {blog && (
+                <Fragment>
+                  <a
+                    href={blog}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-dark my-1"
+                  >
+                    Visit Homepage
+                  </a>
                 </Fragment>
               )}
             </li>
