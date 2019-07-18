@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
 const Navbar = () => (
@@ -7,6 +8,14 @@ const Navbar = () => (
       <FaGithub />
       Github Finder
     </h1>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+    </ul>
   </nav>
 );
 
